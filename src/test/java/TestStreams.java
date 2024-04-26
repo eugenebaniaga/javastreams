@@ -24,10 +24,13 @@ public class TestStreams {
    void listPeople () throws IOException {
         //find people aged 21 and get the first 10
        List<Person> people = MockData.getPeople();
-       List<Person> malePeople = people.stream()
-               .filter(person -> person.getAge() == 21)
+
+       //for debug mode, Add breakpoint, run on debug and trace current stream chain
+       List<Person> underage = people.stream()
+               .filter(person -> person.getAge() == 16)
                .limit(10).collect(Collectors.toList());
-       System.out.println(malePeople.toString());
+       System.out.println(underage.toString());
+
    }
 
 }
